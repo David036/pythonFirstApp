@@ -1,15 +1,6 @@
-professions = {
-            "DVL":"Developer",
-            "MNG":"Manager",
-            "QA":"Quality assurance",
-            "MRG":"Marketing",
-            "HR":"Human resources",
-        }
-
-firstName = input("Enter your First Name:")
-lastName = input("Enter your Last Name:")
-age = input("Enter your age:")
-profession = input("MNG,DVL,QA,MRG,HR:")
+from data import professions
+from data import peoples
+from data import filterPeoples
 class Person:
     def __init__(self,firstName,lastName,age,profession):
         self.firstName = firstName 
@@ -17,16 +8,18 @@ class Person:
         self.age = age
         self.profession = professions[profession]
 
-people = Person(firstName,lastName,age,profession)
-peoples = []
-peoples.append(people)
-
 def my_function():
-    filterPeoples = []
+    firstName = input("Enter your First Name:")
+    lastName = input("Enter your Last Name:")
+    age = int(input("Enter your age:"))
+    profession = input("MNG,DVL,QA,MRG,HR:")
+    people = Person(firstName,lastName,age,profession)
+    peoples.append(people)
     for item in peoples:
-        if item.firstName == "Vazgen" and item.age < "25" and item.profession == "Developer":
+        if item.firstName == "Vazgen" and item.age < 25 and item.profession == "Developer":
             filterPeoples.append(item)
+            peoples.remove(item)
         else:
-            print("Error")
-
-my_function()
+            print("Error with user")
+while 1:
+    my_function()
